@@ -504,6 +504,12 @@ img {
   width: 264px;
   height: 40px;
   padding: 8px 16px;
+  color: #fff;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.04em; 
   border-radius: 4px;
   border: 1px solid #fff;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
@@ -530,7 +536,7 @@ img {
   padding: 8px 24px;
   color: #fff;
   text-align: center;
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
@@ -539,6 +545,10 @@ img {
   border: none;
   background-color: #4d5ae5;
   cursor: pointer;
+}
+
+.subscribe-button-icon {
+  margin-left: 16px;
 }
 
 .subscribe-button-icon {
