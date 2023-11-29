@@ -437,6 +437,7 @@ img {
 }
 
 .footer-descr {
+  width: 264px;
   margin-right: 120px;
 }
 
@@ -563,13 +564,11 @@ img {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
   width: 100%;
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
-  opacity: 0;
   visibility: hidden;
-  pointer-events: none;
+  opacity: 0;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -581,20 +580,56 @@ img {
 }
 
 .modal-box-form {
-  display: none;
-  position: fixed;
-  z-index: 11;
+  position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 408px;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  width: 408px;
+  min-height: 584px;
   padding: 72px 24px 24px 24px;
   border-radius: 4px;
   border: none;
-  background: #fcfcfc;
+  background-color: #fcfcfc;
 }
 
-.form-title {
+/* ============ CLOSE-BUTTON ============ */
+
+.close-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; 
+  cursor: pointer;
+  background-color: #e7e9fc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.close-button:hover,
+.close-button:focus {
+  background-color: #404bbf;
+  border: none;
+}
+
+.close-icon {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.close-button:hover .close-icon,
+.close-button:focus .close-icon {
+  fill: #ffffff;
+}
+
+/* ========== FORM-DESCRIPTION ========== */
+
+.form-descr {
   color: #2e2f42;
   text-align: center;
   font-family: Roboto;
@@ -605,173 +640,91 @@ img {
   margin-bottom: 16px;
 }
 
-.label {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  color: #8e8f99;
-  font-family: Roboto;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1.17;
-  letter-spacing: 0.04em;
+/* ========== FORM ITSELF ========== */
+
+.container-for-label-and-input {
   margin-bottom: 8px;
 }
 
-.comment-label {
-  margin-bottom: 16px;
+.input-label {
+display: block;
+color:#8E8F99;
+font-family: Roboto;
+font-size: 12px;
+font-weight: 400;
+line-height: 2;
+letter-spacing: 0.04em;
+margin-bottom: 4px;
 }
 
-.input {
-  padding: 11px 11px 11px 38px;
+.container-for-input-and-svg {
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  height: 40px;
   border-radius: 4px;
-  border: 1px solid rgba(46, 47, 66, 0.4);
-  transition: border 250ms linear;
+  border: 1px solid rgba(46, 47, 66, 0.40);
+  background-color: transparent; 
+  padding-left: 38px;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
-.input:hover,
-.input:focus {
-  border: 1px solid #4d5ae5;
+.form-input:hover,
+.form-input:focus {
+  border-color: #4D5AE5; 
 }
 
-.input:hover + .name-icon,
-.input:focus + .name-icon,
-.input:hover + .tel-icon,
-.input:focus + .tel-icon,
-.input:hover + .email-icon,
-.input:focus + .email-icon {
-  fill: blue;
+.input-icon {
+  position: absolute;
+  left: 16px;
+  top: 8px;
+  fill: #2E2F42;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
-.comment-input {
-  height: 120px;
-  padding-top: 8px;
-  padding-left: 16px;
-  resize: none;
+.form-input:hover .input-icon,
+.form-input:focus .input-icon {
+  fill: #4D5AE5;
 }
 
-.comment-input::placeholder {
+.user-comment {
+  width: 100%;
+  height: 120px; 
+  font-size: 12px; 
+  line-height: 1.17; 
+  letter-spacing: 0.04em; 
   color: rgba(46, 47, 66, 0.4);
-  font-family: Roboto;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1.17;
-  letter-spacing: 0.04em;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px; 
+  background-color: transparent; 
+  padding: 8px 16px;
+  outline: transparent; 
+  resize: none;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
-.privacy-policy-checkbox {
-  width: 16px;
-  height: 16px;
-  stroke-width: 1px;
-  stroke: rgba(46, 47, 66, 0.4);
+.user-comment:hover,
+.user-comment:focus {
+  border-color: #4D5AE5; 
 }
 
-.privacy-policy-label {
+.container-for-radio {
   display: flex;
-  flex-direction: row;
-  gap: 8px;
   margin-bottom: 24px;
 }
 
-.privacy-policy-link {
-  color: #4d5ae5;
-}
-
-.submit-button {
-  display: block;
-  padding: 16px 32px;
-  width: 169px;
-  margin-right: auto;
-  margin-left: auto;
-  align-self: center;
-  border-radius: 4px;
-  border: none;
-  background: #4d5ae5;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-  color: #fff;
-  text-align: center;
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-}
-
-.checkbox-container {
-  display: relative;
-  overflow: hidden;
-  width: 16px;
-  height: 16px;
-}
-
-.click-icon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translateY(100%);
-  transition: translateY 250ms linear;
-}
-
-.privacy-policy-checkbox:checked .click-icon {
-  transition: translateY(0);
-}
-
-/* =========== ABSOLUTELY POSITIONED ELEMENTS =========== */
-
-.close-button {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  display: flex;
-  justify-content: center;
+.visual-checkbox {
+  display: inline-flex;
   align-items: center;
-  width: 24px;
-  height: 24px;
-  background-color: #e7e9fc;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  width: 16px; 
+  height: 16px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 2px; 
+  fill: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.close-button:hover .close-icon,
-.close-button:focus .close-icon {
-  fill: #404bbf;
-  stroke: #ffffff;
-}
-
-.name-label {
-  position: relative;
-}
-
-.name-icon {
-  position: absolute;
-  top: 29px;
-  left: 16px;
-  fill: #2e2f42;
-  transition: fill 250ms linear;
-}
-
-.tel-label {
-  position: relative;
-}
-
-.tel-icon {
-  position: absolute;
-  top: 26px;
-  left: 16px;
-  fill: #2e2f42;
-  transition: fill 250ms linear;
-}
-
-.email-label {
-  position: relative;
-}
-
-.email-icon {
-  position: absolute;
-  top: 26px;
-  left: 16px;
-  fill: #2e2f42;
-  transition: fill 250ms linear;
-}
