@@ -17,6 +17,19 @@ button {
   cursor: pointer;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 /* ========== GENERAL POSITIONING STYLES ========== */
 
 h1,
@@ -225,19 +238,6 @@ img {
 }
 
 /* =========== BENEFITS SECTION ========== */
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
 
 .benefits-list {
   display: flex;
@@ -749,7 +749,7 @@ img {
   fill: #f4f4fd;
 }
 
-.visually-hidded:checked + .checkbox-container {
+.real-checkbox:checked + .input-label .checkbox-container {
   background-color: #404bbf;
   border: none;
   fill: #f4f4fd;
@@ -772,9 +772,9 @@ img {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   margin-right: auto;
   margin-left: auto;
+  font-family: "Roboto", sans-serif;
   color: #fff;
   text-align: center;
-  font-family: Roboto;
   font-size: 1.5;
   font-weight: 500;
   line-height: 24px; 
