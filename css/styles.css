@@ -689,11 +689,14 @@ margin-bottom: 4px;
   border-color: #4D5AE5; 
 }
 
-
-
 .form-input:hover .input-icon,
 .form-input:focus .input-icon {
   fill: #4D5AE5;
+}
+
+.last-container-for-label-and-input {
+  margin-bottom: 0;
+  margin-bottom: 16px;
 }
 
 .user-comment {
@@ -717,9 +720,10 @@ margin-bottom: 4px;
   border-color: #4D5AE5; 
 }
 
+/* ========== RADIO ========== */
+
 .container-for-radio {
   display: flex;
-  margin-bottom: 24px;
 }
 
 .visual-checkbox {
